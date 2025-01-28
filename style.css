@@ -35,12 +35,16 @@ a#logo > span{
 header nav li{
     list-style: none;
 }
+header nav a{
+    font-size: 120%;
+}
 a#logo,
 header nav a{
     text-decoration: none;
 }
 
-a{
+a,
+p{
     font-family: "DM Sans", sans-serif;
     color: black;
     transition: 0.1s ease-in-out;
@@ -61,4 +65,36 @@ header nav{
 
 header nav ul{
     display: flex;
+}
+
+.frontpagecats{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 5px;
+    margin: 2%;
+    height: 50vh;
+
+}
+
+.frontpagecat {
+    background-color: rgb(243, 243, 243);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    transition: 0.1s ease-in-out;
+    text-decoration: none;
+}
+
+.frontpagecat p {
+    font-size: 120%;
+    margin: 0; 
+}
+
+.frontpagecat:hover {
+    background-color: red;
+}
+
+.frontpagecat:hover p {
+    color: white;
 }
