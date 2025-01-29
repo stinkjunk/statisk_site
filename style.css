@@ -1,5 +1,10 @@
 
 
+:root{
+    --headerheight: 10vh;
+    --mainpadding: 2vw;
+}
+
 .dm-sans {
   font-family: "DM Sans", sans-serif;
   font-optical-sizing: auto;
@@ -17,12 +22,23 @@ a#logo{
     font-size: 230%;
 
 }
+main{
+    padding: var(--mainpadding);
+}
+.selecttype > select,
+h2,
+h3,
+h4,
+h1{
+    font-family: "DM Sans", sans-serif;
+}
 
 a#logo:hover{
     color: black;
 }
 
 header{
+    height: var(--headerheight);
     display: grid;
     grid-template-rows: 1fr;
     grid-template-columns: 3fr 1fr;
@@ -98,3 +114,150 @@ header nav ul{
 .frontpagecat:hover p {
     color: white;
 }
+
+.productbrowse{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+}
+
+
+
+
+
+.product a.img{
+
+    position: relative;
+}
+
+.product a.img img{
+    height: 50cqh;
+    overflow: hidden;
+}
+.productinfo .context,
+.info .context{
+    opacity: 50%;
+}
+
+a.producttitle{
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.infocont{
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+}
+
+.discount{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.discount p{
+    background-color: yellow;
+    text-align: center;
+    transform: translateX(-100%);
+}
+
+span.discount{
+    background-color: yellow;
+    display: none;
+}
+
+span.discount.active{
+    background-color: yellow;
+    display: inline;
+}
+
+
+
+.greyedout{
+
+    backdrop-filter: grayscale() blur(2px);
+    
+    height: 50cqh;
+    width: 100%;
+
+
+    position: absolute;
+    z-index: 2;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+
+.soldout p,
+.greyedout p{
+    font-size: 120%;
+    background-color: red;
+    color: white;
+    padding: 1%;
+   
+}
+
+section.fullminustop{
+    height: calc(100vh - (var(--headerheight) + (var(--mainpadding)*2)))
+}
+
+.productpage{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100%;
+}
+
+.productimage{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.productimage img{
+    height: 100%;
+    
+}
+
+.soldout{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    backdrop-filter: grayscale() blur(2px);
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.soldout.active{
+    display: flex;
+}
+
+.leproduct{
+    display: flex;
+}
+
+.selecttype,
+.checkboxcont{
+    display: flex;
+}
+
+.checkboxcont,
+.selecttype > p{
+    margin-right: 5%;
+}
+
+.checkboxcont{
+    margin-left: 5%;
+}
+/* 
+.selecttype > select{
+    font-family: who cares;
+} */
