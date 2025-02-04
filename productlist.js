@@ -24,12 +24,16 @@ function showProducts(data) {
     const markup = data
     .map(
       (product) => `<div class="product">
-          <a href="product.html?ID=${product.id}" class="img">
+         <div class="productimage">
+            <div class="soldout ${""}">
+              <p>UDSOLGT</p>
+            </div>
             <img
               src="https://kea-alt-del.dk/t7/images/webp/640/${product.id}.webp"
-              alt=""
-            /><br />
-          </a>
+              alt="${product.productdisplayname}"
+              title="${product.productdisplayname}"
+            />
+          </div>
           <a href="product.html?ID=${product.id}" class="producttitle"
             >${product.productdisplayname}</a
           >
