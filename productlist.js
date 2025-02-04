@@ -1,12 +1,25 @@
 const productlist = document.querySelector("#productbrowse");
 const catfilter = "" + new URLSearchParams(window.location.search).get("category");
 console.log("Category: " + catfilter)
-let url = `https://kea-alt-del.dk/t7/api/products?category=${catfilter}`;
+const cattitle = document.querySelector("h1")
+let url
+
+if (catfilter == "null") {
+    url = `https://kea-alt-del.dk/t7/api/products`
+    cattitle.textContent = "Products"
+} else {url = `https://kea-alt-del.dk/t7/api/products?category=${catfilter}`;
+cattitle.textContent = catfilter}
+
 
 
 const mitArray = [];
 
 function showProducts(data) {
+        let soldOutBool = "";
+    let discountBool = "";
+    let discount = "";
+    
+    
 
     const markup = data
     .map(

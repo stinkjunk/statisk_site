@@ -1,21 +1,15 @@
 const productinfo = document.querySelector("#productpage");
-let randId;
-window.onload = randPage;
-function randPage() {
-  randId = Math.floor(Math.random() * 44000) + 1;
-  console.log("Checking if a product exists with ID #" + randId + "...");
+const pageID = "" + new URLSearchParams(window.location.search).get("ID");
+window.onload = loadPage;
+function loadPage() {
+    let soldOutBool = "";
+    let discountBool = "";
+    let discount = "";
+    let bio = "";
 
-  fetch("https://kea-alt-del.dk/t7/api/products/" + randId)
+  fetch("https://kea-alt-del.dk/t7/api/products/" + pageID)
     .then((response) => response.json())
     .then((data) => {
-      if (data == null) {
-        console.log("Invalid ID. Reloading...");
-        randPage();
-      } else {
-        let discount = "";
-        let discountBool = "";
-        let soldOutBool = "";
-        let bio = "";
         if (data.discount != null) {
           discount = data.discount;
           discountBool = "active";
@@ -76,6 +70,7 @@ function randPage() {
         </div>
     `;
       }
-    });
+    )
+    ;
 }
 //The data consists of roughly 44.000 products with corresponding images

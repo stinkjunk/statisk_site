@@ -195,7 +195,7 @@ section.fullminustop {
   grid-template-rows: 80cqh;
   padding-bottom: 5%;
 }
-
+#productbrowse .productimage,
 .productimage {
   display: flex;
   justify-content: center;
@@ -203,9 +203,14 @@ section.fullminustop {
   overflow: hidden;
 }
 
-.productimage img {
-  height: 100%;
-}
+
+/* #productbrowse .productimage img{
+    
+
+
+} */
+
+
 
 .soldout {
   position: absolute;
