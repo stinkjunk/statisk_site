@@ -138,8 +138,10 @@ a.producttitle {
   display: grid;
   grid-template-columns: 4fr 1fr;
 }
-
 .discount {
+  display: none;
+}
+.discount.active {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -159,6 +161,25 @@ span.discount {
 span.discount.active {
   background-color: yellow;
   display: inline;
+}
+
+#productbrowse .price {
+  display: inline-flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.info .price span.discount.active {
+  display: inline;
+}
+
+.oldprice{
+    opacity: 50%;
+    text-decoration: line-through;
+    display: none;
+}
+
+.oldprice.active{
+    display: block;
 }
 
 .greyedout {
@@ -203,19 +224,13 @@ section.fullminustop {
   overflow: hidden;
 }
 
-#productbrowse .productimage{
-    padding: 4%;
+#productbrowse .productimage {
+  padding: 4%;
 }
 
-
-#productbrowse .productimage img{
-    width: 100%;
-    
-
-
+#productbrowse .productimage img {
+  width: 100%;
 }
-
-
 
 .soldout {
   position: absolute;
@@ -241,8 +256,6 @@ section.fullminustop {
   display: flex;
 }
 
-
-
 .checkboxcont,
 .selecttype > p {
   margin-right: 5%;
@@ -251,12 +264,11 @@ section.fullminustop {
 .checkboxcont {
   margin-left: 5%;
 }
-.productinfo{
-    overflow-y: auto;
-    padding: 2%;
-    padding-bottom: 5%;
+.productinfo {
+  overflow-y: auto;
+  padding: 2%;
+  padding-bottom: 5%;
 }
-
 
 /* 
 .selecttype > select{

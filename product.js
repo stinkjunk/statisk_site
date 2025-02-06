@@ -2,28 +2,18 @@ const productinfo = document.querySelector("#productpage");
 const pageID = "" + new URLSearchParams(window.location.search).get("ID");
 window.onload = loadPage;
 function loadPage() {
-    let soldOutBool = "";
-    let discountBool = "";
-    let discount = "";
     let bio = "";
 
   fetch("https://kea-alt-del.dk/t7/api/products/" + pageID)
     .then((response) => response.json())
     .then((data) => {
-        if (data.discount != null) {
-          discount = data.discount;
-          discountBool = "active";
-        }
-        if (data.soldout == 1) {
-          soldOutBool = "active";
-        }
+        
 
         if (data.brandbio != null) {
             bio = `<p>${data.brandbio}</p>`
         }
         
 
-        console.log(discount + ", " + discountBool);
 
         productinfo.innerHTML = `
     <p>
@@ -33,7 +23,7 @@ function loadPage() {
         </p>
         <div class="productpage">
           <div class="productimage">
-            <div class="soldout ${soldOutBool}">
+            <div class="soldout ${data.soldout && "active"}">
               <p>UDSOLGT</p>
             </div>
             <img
@@ -46,7 +36,8 @@ function loadPage() {
           <div class="productinfo">
             <p class="context">${data.articletype} | ${data.brandname}</p>
             <h2>${data.productdisplayname}</h2>
-            <p class="price">DKK ${data.price},- <span class="discount ${discountBool}"> -${discount}%</span></p>
+            <p class="oldprice ${data.discount && "active"}">DKK ${(data.price / (1 - data.discount / 100)).toFixed(0)}.-</p>
+            <p class="price">DKK ${data.price},- <span class="discount ${data.discount && "active"}"> -${data.discount}%</span></p>
             <div class="productdescription">${data.description}</div>
             <h2>${data.brandname}</h2>
             ${bio}
